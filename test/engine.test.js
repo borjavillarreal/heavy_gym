@@ -4,6 +4,7 @@ const E=require('../src/engine');
 const CFG=require('../config.json');
 
 const cfg={...CFG,maxRule:'top'};
+const cfgSpec={...cfg,noteRpe:[10,9]};          // §10.3 / §7 as written in SPEC: two RPE blocks
 const near=(a,b,d=0.005)=>assert.ok(a!==null&&Math.abs(a-b)<=d,`${a} !≈ ${b}`);
 const T1_531=[[0.75,5],[0.85,3],[0.95,'1+'],[0.9,3],[0.85,3],[0.8,3],[0.75,5],[0.7,5],[0.65,5]];
 const squat={templateId:'SQ',lift:'squat',sets:T1_531};
@@ -52,9 +53,9 @@ for(const [max,tm,w] of [[202.15,185,175],[195.13,180,170],[329.74,300,285]]){
 /* ---------- §10.3 note rows + §7 note format ---------- */
 test('§10.3 squat TM 260: 1+ @ 245 and the RPE 10 / RPE 9 rows for 4 reps', ()=>{
   assert.equal(E.trainingMax(285.3,cfg),260);
-  const lines=E.noteFor(squat,285.3,cfg).split('\n');
+  const lines=E.noteFor(squat,285.3,cfgSpec).split('\n');
   assert.equal(lines[0],'⟦PL⟧');
-  assert.equal(lines[1],'1+ @ 245 lb — find your row, load the sets after it');
+  assert.equal(lines[1],'1+ @ 245 lb (set 3) — find your row, load the sets after it');
   assert.equal(lines[2],"(90%×3, 85%×3, 80%×3, 75%×5, 70%×5, 65%×5 of today's TM)");
   const r10=lines.indexOf('RPE 10'), r9=lines.indexOf('RPE 9');
   assert.ok(r10>0&&r9>r10);
@@ -161,18 +162,72 @@ test('§7.2 same exercise twice in a routine is matched in order', ()=>{
 });
 
 /* ---------- config matches §5 ---------- */
-test('§5 config: AMRAP at index 2 on every T1 1+ day, percentages as specified', ()=>{
+test('§5 config: AMRAP at index 2 on every T1 1+ day, Sat 3+ on set 3, percentages as in the Excel', ()=>{
   const T2=(a,b,c)=>[[a,6],[b,5],[c,3],[c,5],[c,7],[c,4],[c,6],[c,8]];
+  const T2s=(a,b,c)=>[[a,5],...T2(a,b,c).slice(1)];   // sumo + front squat open with ×5 (Excel WEEK 1 F15, F23)
   const T1_DL=T1_531.map((s,i)=>i>=6?[s[0],3]:s);
   const BMON=[[0.65,8],[0.75,6],[0.85,4],[0.85,4],[0.85,4],[0.8,5],[0.75,6],[0.7,7],[0.65,8]];
   const want={
     'Monday (push)':[['bench',BMON],['ohp',T2(.5,.6,.7)]],
-    'Tuesday (Pull)':[['squat',T1_531],['deadlift',T2(.5,.6,.7)]],
+    'Tuesday (Pull)':[['squat',T1_531],['deadlift',T2s(.5,.6,.7)]],
     'Wednesday (Arms)':[['ohp',T1_531],['bench',T2(.4,.5,.6)]],
-    'Thursday (Push)':[['deadlift',T1_DL],['squat',T2(.35,.45,.55)]],
+    'Thursday (Push)':[['deadlift',T1_DL],['squat',T2s(.35,.45,.55)]],
     'Friday (Pull)':[['bench',T1_531],['bench',T2(.4,.5,.6)]],
-    'Saturday (Arms)':[['squat',Array(8).fill([.725,3])],['deadlift',Array(6).fill([.5625,3])]],
+    'Saturday (Arms)':[['squat',[[.725,3],[.725,3],[.725,'3+'],...Array(5).fill([.725,3])]],['deadlift',Array(6).fill([.5625,3])]],
   };
   assert.deepEqual(CFG.routines.map(r=>r.title),Object.keys(want));
   for(const r of CFG.routines) assert.deepEqual(r.exercises.map(x=>[x.lift,x.sets]),want[r.title],r.title);
+});
+
+/* ---------- Diego's changes after the first live run ---------- */
+const byTitle=t=>CFG.routines.find(r=>r.title===t);
+const hevyFrom=cfgR=>({title:cfgR.title,exercises:cfgR.exercises.map((cx,i)=>({title:['Lift A','Lift B'][i],exercise_template_id:cx.templateId,
+  sets:cx.sets.map(()=>({type:'normal',weight_kg:20,reps:1}))}))});
+const stateMaxes={bench:{value:199.39},squat:{value:285.27},deadlift:{value:303.51},ohp:{value:162.69}};
+
+test('notes carry only the RPE 10 block', ()=>{
+  const note=E.noteFor(squat,285.3,cfg);
+  assert.ok(note.includes('RPE 10')); assert.ok(!note.includes('RPE 9'));
+  assert.equal(note.split('\n').filter(l=>l.includes('→')).length,cfg.noteReps.length);
+});
+
+test('Saturday: the note says the 3+ is set 3, rows start at 3, equal sets collapse', ()=>{
+  const sat=byTitle('Saturday (Arms)').exercises[0];
+  const lines=E.noteFor(sat,285.27,cfg).split('\n');
+  assert.equal(lines[1],'3+ @ 190 lb (set 3) — find your row, load the sets after it');
+  assert.equal(lines[2],"(72.5%×3 (5 sets) of today's TM)");
+  const rows=lines.filter(l=>l.includes('→'));
+  assert.equal(rows[0],' 3 → 140 (5 sets)');                 // no 1- or 2-rep rows for a 3+
+  assert.ok(rows.includes('13 → 190 (5 sets)'));              // 190×13 @10 is where today's TM meets the preset
+});
+
+test('Saturday 3+ never moves the squat week max', ()=>{
+  const satR=byTitle('Saturday (Arms)'); const kg=lb=>E.toKg(lb,'lb');
+  const w={exercises:[{exercise_template_id:satR.exercises[0].templateId,sets:Array.from({length:8},(_,i)=>({type:'normal',weight_kg:kg(190),reps:i===2?6:3,rpe:i===2?10:null}))}]};
+  assert.deepEqual(E.ingestWorkout(w,satR,cfg),[]);
+});
+
+test('Friday: close-grip gets a note keyed to the bench 1+ of the same day', ()=>{
+  const fri=byTitle('Friday (Pull)');
+  const {body,changes}=E.planRoutine(hevyFrom(fri),fri,stateMaxes,cfg);
+  const cg=body.exercises[1].notes.split('\n');
+  assert.equal(cg[1],"Follows today's Lift A 1+ @ 170 lb — find that row");
+  assert.ok(cg.includes(' 5 → 70 · 90 · 110 (6 sets)'));     // bench 170×5 @10 -> TM 180 = the preset
+  assert.ok(cg.includes(' 4 → 70 · 90 · 105 (6 sets)'));     // bench 170×4 @10 -> TM 175
+  assert.ok(changes.includes('  Lift B: note updated'));
+  const tue=byTitle('Tuesday (Pull)');                        // different lift after the 1+: no note
+  assert.equal(E.planRoutine(hevyFrom(tue),tue,stateMaxes,cfg).body.exercises[1].notes,undefined);
+});
+
+test("Tuesday's squat 1+ moves Thursday's front squat (and Saturday's squat)", ()=>{
+  const tue=byTitle('Tuesday (Pull)'), thu=byTitle('Thursday (Push)'), sat=byTitle('Saturday (Arms)');
+  const before=E.planRoutine(hevyFrom(thu),thu,stateMaxes,cfg).body.exercises[1].sets.map(s=>E.toUser(s.weight_kg,'lb'));
+  assert.deepEqual(before,[90,115,145,145,145,145,145,145]);          // Excel WEEK 1 row 23, TM 260
+  const kg=lb=>E.toKg(lb,'lb');
+  const w={exercises:[{exercise_template_id:tue.exercises[0].templateId,sets:[195,220,245,235,220,210,195,180,170].map((lb,i)=>({type:'normal',weight_kg:kg(lb),reps:i===2?8:3,rpe:i===2?9:null}))}]};
+  const [r]=E.ingestWorkout(w,tue,cfg);                              // 245×8 @9 -> e1RM 321.5 -> TM 290
+  const maxes={...stateMaxes,squat:{value:r.max}};
+  const after=E.planRoutine(hevyFrom(thu),thu,maxes,cfg).body.exercises[1].sets.map(s=>E.toUser(s.weight_kg,'lb'));
+  assert.deepEqual(after,[100,130,160,160,160,160,160,160]);
+  assert.equal(E.toUser(E.planRoutine(hevyFrom(sat),sat,maxes,cfg).body.exercises[0].sets[0].weight_kg,'lb'),210);
 });

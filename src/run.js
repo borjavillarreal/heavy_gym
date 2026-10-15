@@ -1,6 +1,6 @@
 // Orchestration only: read config/state, talk to Hevy, print. The math lives in engine.js.
 const fs=require('fs'), path=require('path');
-const {ingestWorkout,noteFor,planRoutine,fmt}=require('./engine');
+const {ingestWorkout,noteFor,followerNoteFor,leaderOf,planRoutine,fmt}=require('./engine');
 const hevy=require('./hevy');
 const ROOT=path.join(__dirname,'..');
 const CFG=JSON.parse(fs.readFileSync(path.join(ROOT,'config.json'),'utf8'));
@@ -30,8 +30,10 @@ async function main(){
   const cmd=process.argv[2]||'run';
   if(cmd==='preview'){
     for(const r of CFG.routines) for(const cx of r.exercises){
-      const max=state.maxes[cx.lift]?.value;
-      if(hasAmrap(cx)&&max) console.log(`\n=== ${r.title} · ${cx.lift} ===\n`+noteFor(cx,max,CFG));
+      const max=state.maxes[cx.lift]?.value; if(!max) continue;
+      const leader=leaderOf(r,cx);
+      const note=hasAmrap(cx)?noteFor(cx,max,CFG):leader?followerNoteFor(cx,leader,leader.lift,max,CFG):null;
+      if(note) console.log(`\n=== ${r.title} · ${cx.lift}${leader?' (after the '+leader.lift+' 1+)':''} ===\n`+note);
     }
     return;
   }

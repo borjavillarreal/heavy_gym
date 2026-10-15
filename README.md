@@ -1,6 +1,6 @@
 # hevy-pl-sync
 
-After every saved Hevy workout: reads your 1+ / 3+ set, updates the week max with the same RPE engine as your Excel, rewrites the next sessions' weights in your Hevy routines, and refreshes the note on each AMRAP exercise with the "your reps → remaining sets" table (RPE 10 and RPE 9).
+After every saved Hevy workout: reads your 1+ / 3+ set, updates the week max with the same RPE engine as your Excel, rewrites the next sessions' weights in your Hevy routines, and refreshes the note on each AMRAP exercise with the "your reps → remaining sets" table (RPE 10).
 
 ## Setup (≈20 min, once)
 1. **Create a private GitHub repo** and upload these files.
@@ -12,6 +12,9 @@ After every saved Hevy workout: reads your 1+ / 3+ set, updates the week max wit
 ## In the gym
 - Log RPE on the 1+ set. Without it the script assumes RPE 10 (conservative).
 - Find your reps in the note, type those weights into the remaining sets.
+- Friday close-grip has its own note keyed to that day's bench 1+: same row number, its weights.
+- Saturday squat: the 3rd set is a 3+. Its note sets the other sets that day but never changes your week max (`updatesMax: false`).
+- Other days follow on their own: after Tuesday's squat is saved, the next run rewrites Thursday's front squat and Saturday's squat.
 - Your own text in the exercise note is kept; only the block between ⟦PL⟧ and ⟦/PL⟧ is replaced.
 
 ## Commands
