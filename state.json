@@ -1,11 +1,34 @@
 {
   "_note": "Seeded from PL_Workout_NEW.xlsx (latest week max per lift, lb). The script updates this after every saved workout.",
   "maxes": {
-    "bench":    { "value": 199.39, "source": "sheet P2 W3" },
-    "squat":    { "value": 285.27, "source": "sheet P2 W3" },
-    "deadlift": { "value": 303.51, "source": "sheet P3 W1" },
-    "ohp":      { "value": 162.69, "source": "sheet P4 W2 (single @RPE 8)" }
+    "bench": {
+      "value": 199.39,
+      "source": "sheet P2 W3"
+    },
+    "squat": {
+      "value": 285.27,
+      "source": "sheet P2 W3"
+    },
+    "deadlift": {
+      "value": 303.51,
+      "source": "sheet P3 W1"
+    },
+    "ohp": {
+      "value": 162.69,
+      "source": "sheet P4 W2 (single @RPE 8)"
+    }
   },
-  "processed": [],
+  "processed": [
+    "8b146fed-5d1d-4629-a86a-6a7a60a310ac",
+    "bb59847f-1939-4e3c-895d-1cf794311284",
+    "573e7679-be18-4668-b4fd-ff6e8f7779ac",
+    "f6698161-64b0-4358-9c74-694fe0f55eac",
+    "0ff7a35f-2c22-4360-a673-56b032939c7a",
+    "386b35ea-ae62-4e49-95e0-92cddc5231f1",
+    "788f6499-78cf-4062-9a2f-c6654f3e5608",
+    "eef5024f-080c-466b-bc28-f1481882d944",
+    "1eea8d0f-ebc7-4f1c-bc46-84d50fb1f598",
+    "7d15ac44-764b-4c28-9481-3092fc1aaa96"
+  ],
   "history": []
 }
