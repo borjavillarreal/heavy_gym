@@ -1,0 +1,11 @@
+{
+  "_note": "Seeded from PL_Workout_NEW.xlsx (latest week max per lift, lb). The script updates this after every saved workout.",
+  "maxes": {
+    "bench":    { "value": 199.39, "source": "sheet P2 W3" },
+    "squat":    { "value": 285.27, "source": "sheet P2 W3" },
+    "deadlift": { "value": 303.51, "source": "sheet P3 W1" },
+    "ohp":      { "value": 162.69, "source": "sheet P4 W2 (single @RPE 8)" }
+  },
+  "processed": [],
+  "history": []
+}
