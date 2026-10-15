@@ -191,14 +191,12 @@ test('notes carry only the RPE 10 block', ()=>{
   assert.equal(note.split('\n').filter(l=>l.includes('→')).length,cfg.noteReps.length);
 });
 
-test('Saturday: the note says the 3+ is set 3, rows start at 3, equal sets collapse', ()=>{
-  const sat=byTitle('Saturday (Arms)').exercises[0];
-  const lines=E.noteFor(sat,285.27,cfg).split('\n');
-  assert.equal(lines[1],'3+ @ 190 lb (set 3) — find your row, load the sets after it');
-  assert.equal(lines[2],"(72.5%×3 (5 sets) of today's TM)");
-  const rows=lines.filter(l=>l.includes('→'));
-  assert.equal(rows[0],' 3 → 140 (5 sets)');                 // no 1- or 2-rep rows for a 3+
-  assert.ok(rows.includes('13 → 190 (5 sets)'));              // 190×13 @10 is where today's TM meets the preset
+test('Saturday: the note only says the 3+ is set 3 — no table, weights untouched', ()=>{
+  const sat=byTitle('Saturday (Arms)');
+  assert.equal(E.noteFor(sat.exercises[0],285.27,cfg),
+    '⟦PL⟧\nSet 3 is the 3+ @ 190 lb — as many reps as you can\nThe other sets stay as loaded.\n⟦/PL⟧');
+  const {body}=E.planRoutine(hevyFrom(sat),sat,stateMaxes,cfg);
+  assert.deepEqual(body.exercises[0].sets.map(s=>[E.toUser(s.weight_kg,'lb'),s.reps]),Array(8).fill([190,3]));
 });
 
 test('Saturday 3+ never moves the squat week max', ()=>{

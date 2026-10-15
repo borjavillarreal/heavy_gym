@@ -106,6 +106,9 @@ const pctList=sets=>{
 function noteFor(cx,max,cfg){
   const tm=trainingMax(max,cfg); const ai=amrapIndex(cx);
   const W=setWeight(tm,cx.sets[ai][0],cfg); const after=cx.sets.slice(ai+1);
+  // noteTable:false (Saturday) = just say which set is the AMRAP; the other sets don't depend on it.
+  if(cx.noteTable===false) return [MARK_A,`Set ${ai+1} is the ${cx.sets[ai][1]} @ ${fmt(W)} ${cfg.unit} — as many reps as you can`,
+    'The other sets stay as loaded.',MARK_B].join('\n');
   return [MARK_A,`${cx.sets[ai][1]} @ ${fmt(W)} ${cfg.unit} (set ${ai+1}) — find your row, load the sets after it`,
     `(${pctList(after)} of today's TM)`,...rowsFor(W,after,cfg,cx),
     '',`TM ${fmt(tm)} from week max ${fmt(+max.toFixed(1))}`,MARK_B].join('\n');

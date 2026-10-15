@@ -7,7 +7,7 @@
   "noteReps": [1, 2, 3, 4, 5, 6, 7, 8, 10],
   "noteRpe": [10],
 
-  "_how": "Run `node src/run.js list` to print your Hevy routines and exercise_template_ids, then paste them below. Routine titles must match Hevy exactly. Sets are [percent of TM, reps]; a reps value with '+' marks the AMRAP set that drives the note. \"updatesMax\": false = the AMRAP gets a note but never changes the week max. A later exercise of the same lift on the same day (Fri close-grip) gets its own note keyed to the earlier 1+.",
+  "_how": "Run `node src/run.js list` to print your Hevy routines and exercise_template_ids, then paste them below. Routine titles must match Hevy exactly. Sets are [percent of TM, reps]; a reps value with '+' marks the AMRAP set that drives the note. \"updatesMax\": false = the AMRAP never changes the week max; \"noteTable\": false = its note only says which set it is, no table. A later exercise of the same lift on the same day (Fri close-grip) gets its own note keyed to the earlier 1+.",
 
   "routines": [
     { "title": "Monday (push)", "exercises": [
@@ -31,7 +31,7 @@
       { "templateId": "35B51B87","lift": "bench", "sets": [[0.4,6],[0.5,5],[0.6,3],[0.6,5],[0.6,7],[0.6,4],[0.6,6],[0.6,8]] }
     ]},
     { "title": "Saturday (Arms)", "exercises": [
-      { "templateId": "D04AC939", "lift": "squat",    "updatesMax": false, "noteReps": [3,5,7,9,10,11,12,13,14,15], "sets": [[0.725,3],[0.725,3],[0.725,"3+"],[0.725,3],[0.725,3],[0.725,3],[0.725,3],[0.725,3]] },
+      { "templateId": "D04AC939", "lift": "squat",    "updatesMax": false, "noteTable": false, "sets": [[0.725,3],[0.725,3],[0.725,"3+"],[0.725,3],[0.725,3],[0.725,3],[0.725,3],[0.725,3]] },
       { "templateId": "D20D7BBE",  "lift": "deadlift", "sets": [[0.5625,3],[0.5625,3],[0.5625,3],[0.5625,3],[0.5625,3],[0.5625,3]] }
     ]}
   ]
