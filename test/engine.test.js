@@ -85,7 +85,7 @@ test('§10.4 same case through a real-shaped Hevy workout (kg, warm-ups, normal 
     {type:'normal',weight_kg:kg(170),reps:7,rpe:9},          // last set with RPE = back-off
     {type:'normal',weight_kg:kg(160),reps:5,rpe:null},
   ]}]};
-  const cfgR={title:'PL – Tue',exercises:[squat]};
+  const cfgR={title:'Tuesday (Pull)',exercises:[squat]};
   const [r]=E.ingestWorkout(workout,cfgR,{...cfg,maxRule:'top'});
   assert.deepEqual(r.top,{w:245,r:4,rpe:9}); assert.deepEqual(r.back,{w:170,r:7,rpe:9});
   assert.equal(+r.max.toFixed(1),283.9);
@@ -113,7 +113,7 @@ test('§6.5 nothing usable: no max, warning logged', ()=>{
 });
 
 /* ---------- §7 routine rewrite ---------- */
-const hevyRoutine=(sets,notes)=>({id:'r1',title:'PL – Tue',notes:null,folder_id:7,exercises:[
+const hevyRoutine=(sets,notes)=>({id:'r1',title:'Tuesday (Pull)',notes:null,folder_id:7,exercises:[
   {index:0,title:'Squat (Barbell)',exercise_template_id:'SQ',superset_id:null,rest_seconds:180,notes,sets},
   {index:1,title:'Leg Press',exercise_template_id:'LP',superset_id:null,rest_seconds:90,notes:'mine',sets:[{index:0,type:'normal',weight_kg:100,reps:12}]},
 ]});
@@ -166,12 +166,12 @@ test('§5 config: AMRAP at index 2 on every T1 1+ day, percentages as specified'
   const T1_DL=T1_531.map((s,i)=>i>=6?[s[0],3]:s);
   const BMON=[[0.65,8],[0.75,6],[0.85,4],[0.85,4],[0.85,4],[0.8,5],[0.75,6],[0.7,7],[0.65,8]];
   const want={
-    'PL – Mon':[['bench',BMON],['ohp',T2(.5,.6,.7)]],
-    'PL – Tue':[['squat',T1_531],['deadlift',T2(.5,.6,.7)]],
-    'PL – Wed':[['ohp',T1_531],['bench',T2(.4,.5,.6)]],
-    'PL – Thu':[['deadlift',T1_DL],['squat',T2(.35,.45,.55)]],
-    'PL – Fri':[['bench',T1_531],['bench',T2(.4,.5,.6)]],
-    'PL – Sat':[['squat',Array(8).fill([.725,3])],['deadlift',Array(6).fill([.5625,3])]],
+    'Monday (push)':[['bench',BMON],['ohp',T2(.5,.6,.7)]],
+    'Tuesday (Pull)':[['squat',T1_531],['deadlift',T2(.5,.6,.7)]],
+    'Wednesday (Arms)':[['ohp',T1_531],['bench',T2(.4,.5,.6)]],
+    'Thursday (Push)':[['deadlift',T1_DL],['squat',T2(.35,.45,.55)]],
+    'Friday (Pull)':[['bench',T1_531],['bench',T2(.4,.5,.6)]],
+    'Saturday (Arms)':[['squat',Array(8).fill([.725,3])],['deadlift',Array(6).fill([.5625,3])]],
   };
   assert.deepEqual(CFG.routines.map(r=>r.title),Object.keys(want));
   for(const r of CFG.routines) assert.deepEqual(r.exercises.map(x=>[x.lift,x.sets]),want[r.title],r.title);

@@ -10,29 +10,29 @@
   "_how": "Run `node src/run.js list` to print your Hevy routines and exercise_template_ids, then paste them below. Routine titles must match Hevy exactly. Sets are [percent of TM, reps]; a reps value with '+' marks the AMRAP set that drives the note.",
 
   "routines": [
-    { "title": "PL – Mon", "exercises": [
-      { "templateId": "PASTE_BENCH_ID", "lift": "bench",    "sets": [[0.65,8],[0.75,6],[0.85,4],[0.85,4],[0.85,4],[0.8,5],[0.75,6],[0.7,7],[0.65,8]] },
-      { "templateId": "PASTE_OHP_ID",   "lift": "ohp",      "sets": [[0.5,6],[0.6,5],[0.7,3],[0.7,5],[0.7,7],[0.7,4],[0.7,6],[0.7,8]] }
+    { "title": "Monday (push)", "exercises": [
+      { "templateId": "79D0BB3A", "lift": "bench",    "sets": [[0.65,8],[0.75,6],[0.85,4],[0.85,4],[0.85,4],[0.8,5],[0.75,6],[0.7,7],[0.65,8]] },
+      { "templateId": "7B8D84E8",   "lift": "ohp",      "sets": [[0.5,6],[0.6,5],[0.7,3],[0.7,5],[0.7,7],[0.7,4],[0.7,6],[0.7,8]] }
     ]},
-    { "title": "PL – Tue", "exercises": [
-      { "templateId": "PASTE_SQUAT_ID", "lift": "squat",    "sets": [[0.75,5],[0.85,3],[0.95,"1+"],[0.9,3],[0.85,3],[0.8,3],[0.75,5],[0.7,5],[0.65,5]] },
-      { "templateId": "PASTE_SUMO_ID",  "lift": "deadlift", "sets": [[0.5,6],[0.6,5],[0.7,3],[0.7,5],[0.7,7],[0.7,4],[0.7,6],[0.7,8]] }
+    { "title": "Tuesday (Pull)", "exercises": [
+      { "templateId": "D04AC939", "lift": "squat",    "sets": [[0.75,5],[0.85,3],[0.95,"1+"],[0.9,3],[0.85,3],[0.8,3],[0.75,5],[0.7,5],[0.65,5]] },
+      { "templateId": "D20D7BBE",  "lift": "deadlift", "sets": [[0.5,6],[0.6,5],[0.7,3],[0.7,5],[0.7,7],[0.7,4],[0.7,6],[0.7,8]] }
     ]},
-    { "title": "PL – Wed", "exercises": [
-      { "templateId": "PASTE_OHP_ID",     "lift": "ohp",    "sets": [[0.75,5],[0.85,3],[0.95,"1+"],[0.9,3],[0.85,3],[0.8,3],[0.75,5],[0.7,5],[0.65,5]] },
-      { "templateId": "PASTE_INCLINE_ID", "lift": "bench",  "sets": [[0.4,6],[0.5,5],[0.6,3],[0.6,5],[0.6,7],[0.6,4],[0.6,6],[0.6,8]] }
+    { "title": "Wednesday (Arms)", "exercises": [
+      { "templateId": "7B8D84E8",     "lift": "ohp",    "sets": [[0.75,5],[0.85,3],[0.95,"1+"],[0.9,3],[0.85,3],[0.8,3],[0.75,5],[0.7,5],[0.65,5]] },
+      { "templateId": "50DFDFAB", "lift": "bench",  "sets": [[0.4,6],[0.5,5],[0.6,3],[0.6,5],[0.6,7],[0.6,4],[0.6,6],[0.6,8]] }
     ]},
-    { "title": "PL – Thu", "exercises": [
-      { "templateId": "PASTE_DEADLIFT_ID", "lift": "deadlift", "sets": [[0.75,5],[0.85,3],[0.95,"1+"],[0.9,3],[0.85,3],[0.8,3],[0.75,3],[0.7,3],[0.65,3]] },
-      { "templateId": "PASTE_FRONTSQ_ID",  "lift": "squat",    "sets": [[0.35,6],[0.45,5],[0.55,3],[0.55,5],[0.55,7],[0.55,4],[0.55,6],[0.55,8]] }
+    { "title": "Thursday (Push)", "exercises": [
+      { "templateId": "C6272009", "lift": "deadlift", "sets": [[0.75,5],[0.85,3],[0.95,"1+"],[0.9,3],[0.85,3],[0.8,3],[0.75,3],[0.7,3],[0.65,3]] },
+      { "templateId": "5046D0A9",  "lift": "squat",    "sets": [[0.35,6],[0.45,5],[0.55,3],[0.55,5],[0.55,7],[0.55,4],[0.55,6],[0.55,8]] }
     ]},
-    { "title": "PL – Fri", "exercises": [
-      { "templateId": "PASTE_BENCH_ID",    "lift": "bench", "sets": [[0.75,5],[0.85,3],[0.95,"1+"],[0.9,3],[0.85,3],[0.8,3],[0.75,5],[0.7,5],[0.65,5]] },
-      { "templateId": "PASTE_CLOSEGRIP_ID","lift": "bench", "sets": [[0.4,6],[0.5,5],[0.6,3],[0.6,5],[0.6,7],[0.6,4],[0.6,6],[0.6,8]] }
+    { "title": "Friday (Pull)", "exercises": [
+      { "templateId": "79D0BB3A",    "lift": "bench", "sets": [[0.75,5],[0.85,3],[0.95,"1+"],[0.9,3],[0.85,3],[0.8,3],[0.75,5],[0.7,5],[0.65,5]] },
+      { "templateId": "35B51B87","lift": "bench", "sets": [[0.4,6],[0.5,5],[0.6,3],[0.6,5],[0.6,7],[0.6,4],[0.6,6],[0.6,8]] }
     ]},
-    { "title": "PL – Sat", "exercises": [
-      { "templateId": "PASTE_SQUAT_ID", "lift": "squat",    "sets": [[0.725,3],[0.725,3],[0.725,3],[0.725,3],[0.725,3],[0.725,3],[0.725,3],[0.725,3]] },
-      { "templateId": "PASTE_SUMO_ID",  "lift": "deadlift", "sets": [[0.5625,3],[0.5625,3],[0.5625,3],[0.5625,3],[0.5625,3],[0.5625,3]] }
+    { "title": "Saturday (Arms)", "exercises": [
+      { "templateId": "D04AC939", "lift": "squat",    "sets": [[0.725,3],[0.725,3],[0.725,3],[0.725,3],[0.725,3],[0.725,3],[0.725,3],[0.725,3]] },
+      { "templateId": "D20D7BBE",  "lift": "deadlift", "sets": [[0.5625,3],[0.5625,3],[0.5625,3],[0.5625,3],[0.5625,3],[0.5625,3]] }
     ]}
   ]
 }
