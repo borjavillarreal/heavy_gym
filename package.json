@@ -1,2 +1,2 @@
 { "name": "hevy-pl-sync", "private": true, "engines": { "node": ">=20" },
-  "scripts": { "list": "node src/run.js list", "preview": "node src/run.js preview", "dry": "node src/run.js run", "apply": "APPLY=1 node src/run.js run" } }
+  "scripts": { "test": "node --test", "list": "node src/run.js list", "preview": "node src/run.js preview", "dry": "node src/run.js run", "apply": "APPLY=1 node src/run.js run" } }

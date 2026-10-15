@@ -15,6 +15,7 @@ After every saved Hevy workout: reads your 1+ / 3+ set, updates the week max wit
 - Your own text in the exercise note is kept; only the block between ⟦PL⟧ and ⟦/PL⟧ is replaced.
 
 ## Commands
+- `node --test` – the §10 checks from SPEC.md (no API call)
 - `node src/run.js preview` – print every note from state.json (no API call)
 - `node src/run.js list` – routines and exercise ids
 - `node src/run.js run` – dry run; `APPLY=1 node src/run.js run` – write

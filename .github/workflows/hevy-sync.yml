@@ -1,12 +1,13 @@
 name: hevy-sync
 on:
   schedule:
-    - cron: "*/30 11-23,0-5 * * *"   # every 30 min, 5am–11pm Mexico City
+    - cron: "0,30 11-23,0-4 * * *"   # every 30 min, 05:00–22:30 Mexico City (UTC-6, no DST)
+    - cron: "0 5 * * *"              # 23:00 Mexico City
   workflow_dispatch:
     inputs:
       apply:
         description: "Write to Hevy (1) or dry run (0)"
-        default: "1"
+        default: "0"
 permissions:
   contents: write
 concurrency: hevy-sync
@@ -17,6 +18,7 @@ jobs:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
         with: { node-version: 20 }
+      - run: node --test
       - run: node src/run.js run
         env:
           HEVY_API_KEY: ${{ secrets.HEVY_API_KEY }}
