@@ -6,12 +6,14 @@
       "source": "sheet P2 W3"
     },
     "squat": {
-      "value": 285.27,
-      "source": "sheet P2 W3"
+      "value": 228.22,
+      "source": "comeback after ~6 months without legs: 80% of 285.27 (sheet max)",
+      "single": false
     },
     "deadlift": {
-      "value": 303.51,
-      "source": "sheet P3 W1"
+      "value": 242.81,
+      "source": "comeback after ~6 months without legs: 80% of 303.51 (sheet max)",
+      "single": false
     },
     "ohp": {
       "value": 162.69,
