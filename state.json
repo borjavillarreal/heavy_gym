@@ -2,8 +2,9 @@
   "_note": "Seeded from PL_Workout_NEW.xlsx (latest week max per lift, lb). The script updates this after every saved workout.",
   "maxes": {
     "bench": {
-      "value": 199.39,
-      "source": "sheet P2 W3"
+      "value": 159.51,
+      "source": "comeback after ~6 months without lifting: 80% of 199.39 (sheet max)",
+      "single": false
     },
     "squat": {
       "value": 228.22,
@@ -16,8 +17,9 @@
       "single": false
     },
     "ohp": {
-      "value": 162.69,
-      "source": "sheet P4 W2 (single @RPE 8)"
+      "value": 130.15,
+      "source": "comeback after ~6 months without lifting: 80% of 162.69 (sheet max)",
+      "single": false
     }
   },
   "processed": [
