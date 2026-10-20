@@ -7,8 +7,8 @@
       "single": false
     },
     "squat": {
-      "value": 228.22,
-      "source": "comeback after ~6 months without legs: 80% of 285.27 (sheet max)",
+      "value": 254.45,
+      "source": "Tuesday (Pull) 2026-10-20",
       "single": false
     },
     "deadlift": {
@@ -32,7 +32,24 @@
     "788f6499-78cf-4062-9a2f-c6654f3e5608",
     "eef5024f-080c-466b-bc28-f1481882d944",
     "1eea8d0f-ebc7-4f1c-bc46-84d50fb1f598",
-    "7d15ac44-764b-4c28-9481-3092fc1aaa96"
+    "7d15ac44-764b-4c28-9481-3092fc1aaa96",
+    "19309703-14c6-4906-bbd4-ca5435f3e684"
   ],
-  "history": []
+  "history": [
+    {
+      "date": "2026-10-20T12:34:14+00:00",
+      "lift": "squat",
+      "top": {
+        "w": 200,
+        "r": 6,
+        "rpe": 8
+      },
+      "back": {
+        "w": 150,
+        "r": 12,
+        "rpe": 8.5
+      },
+      "max": 254.45
+    }
+  ]
 }
