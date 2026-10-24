@@ -17,9 +17,9 @@
       "single": false
     },
     "ohp": {
-      "value": 130.15,
-      "source": "comeback after ~6 months without lifting: 80% of 162.69 (sheet max)",
-      "single": false
+      "value": 139.56,
+      "source": "Wednesday (Arms) 2026-10-24",
+      "single": true
     }
   },
   "processed": [
@@ -33,7 +33,8 @@
     "eef5024f-080c-466b-bc28-f1481882d944",
     "1eea8d0f-ebc7-4f1c-bc46-84d50fb1f598",
     "7d15ac44-764b-4c28-9481-3092fc1aaa96",
-    "19309703-14c6-4906-bbd4-ca5435f3e684"
+    "19309703-14c6-4906-bbd4-ca5435f3e684",
+    "66ca5020-db3f-44a7-b847-c02b0d421fd3"
   ],
   "history": [
     {
@@ -50,6 +51,17 @@
         "rpe": 8.5
       },
       "max": 254.45
+    },
+    {
+      "date": "2026-10-24T19:52:23+00:00",
+      "lift": "ohp",
+      "top": {
+        "w": 115,
+        "r": 6,
+        "rpe": 9.5
+      },
+      "back": null,
+      "max": 139.56
     }
   ]
 }
