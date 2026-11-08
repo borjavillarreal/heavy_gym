@@ -17,8 +17,8 @@
       "single": false
     },
     "ohp": {
-      "value": 139.56,
-      "source": "Wednesday (Arms) 2026-10-24",
+      "value": 135.57,
+      "source": "Wednesday (Arms) 2026-11-08",
       "single": true
     }
   },
@@ -35,7 +35,8 @@
     "7d15ac44-764b-4c28-9481-3092fc1aaa96",
     "19309703-14c6-4906-bbd4-ca5435f3e684",
     "66ca5020-db3f-44a7-b847-c02b0d421fd3",
-    "ee2c745a-7b6e-4f50-a1a9-b267a6a608cc"
+    "ee2c745a-7b6e-4f50-a1a9-b267a6a608cc",
+    "9efccc53-df95-47cc-a144-563c17d48a28"
   ],
   "history": [
     {
@@ -63,6 +64,17 @@
       },
       "back": null,
       "max": 139.56
+    },
+    {
+      "date": "2026-11-08T19:32:13+00:00",
+      "lift": "ohp",
+      "top": {
+        "w": 125,
+        "r": 3,
+        "rpe": 10
+      },
+      "back": null,
+      "max": 135.57
     }
   ]
 }
