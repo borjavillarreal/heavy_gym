@@ -7,9 +7,9 @@
       "single": false
     },
     "squat": {
-      "value": 254.45,
-      "source": "Tuesday (Pull) 2026-10-20",
-      "single": false
+      "value": 258.82,
+      "source": "Tuesday (Pull) 2026-11-11",
+      "single": true
     },
     "deadlift": {
       "value": 242.81,
@@ -37,7 +37,8 @@
     "66ca5020-db3f-44a7-b847-c02b0d421fd3",
     "ee2c745a-7b6e-4f50-a1a9-b267a6a608cc",
     "9efccc53-df95-47cc-a144-563c17d48a28",
-    "635bb86a-2c47-467d-8ac6-04cc524b9c21"
+    "635bb86a-2c47-467d-8ac6-04cc524b9c21",
+    "2e13d962-9489-47f2-a031-a45c73f5fb93"
   ],
   "history": [
     {
@@ -76,6 +77,17 @@
       },
       "back": null,
       "max": 135.57
+    },
+    {
+      "date": "2026-11-11T01:03:30+00:00",
+      "lift": "squat",
+      "top": {
+        "w": 220,
+        "r": 5,
+        "rpe": 9.5
+      },
+      "back": null,
+      "max": 258.82
     }
   ]
 }
