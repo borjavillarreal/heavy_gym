@@ -2,8 +2,8 @@
   "_note": "Seeded from PL_Workout_NEW.xlsx (latest week max per lift, lb). The script updates this after every saved workout.",
   "maxes": {
     "bench": {
-      "value": 159.51,
-      "source": "comeback after ~6 months without lifting: 80% of 199.39 (sheet max)",
+      "value": 223.64,
+      "source": "Friday (Pull) 2026-11-11",
       "single": false
     },
     "squat": {
@@ -38,7 +38,8 @@
     "ee2c745a-7b6e-4f50-a1a9-b267a6a608cc",
     "9efccc53-df95-47cc-a144-563c17d48a28",
     "635bb86a-2c47-467d-8ac6-04cc524b9c21",
-    "2e13d962-9489-47f2-a031-a45c73f5fb93"
+    "2e13d962-9489-47f2-a031-a45c73f5fb93",
+    "f5cd2d37-8899-4a19-9bb9-66808550d698"
   ],
   "history": [
     {
@@ -88,6 +89,21 @@
       },
       "back": null,
       "max": 258.82
+    },
+    {
+      "date": "2026-11-11T12:37:46+00:00",
+      "lift": "bench",
+      "top": {
+        "w": 140,
+        "r": 14,
+        "rpe": 10
+      },
+      "back": {
+        "w": 195,
+        "r": 3,
+        "rpe": 10
+      },
+      "max": 223.64
     }
   ]
 }
