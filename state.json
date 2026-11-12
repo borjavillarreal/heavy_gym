@@ -12,9 +12,9 @@
       "single": true
     },
     "deadlift": {
-      "value": 242.81,
-      "source": "comeback after ~6 months without legs: 80% of 303.51 (sheet max)",
-      "single": false
+      "value": 321.59,
+      "source": "Thursday (Push) 2026-11-12",
+      "single": true
     },
     "ohp": {
       "value": 135.57,
@@ -39,7 +39,8 @@
     "9efccc53-df95-47cc-a144-563c17d48a28",
     "635bb86a-2c47-467d-8ac6-04cc524b9c21",
     "2e13d962-9489-47f2-a031-a45c73f5fb93",
-    "f5cd2d37-8899-4a19-9bb9-66808550d698"
+    "f5cd2d37-8899-4a19-9bb9-66808550d698",
+    "659e4c3e-94a3-478b-8697-e247f02362e3"
   ],
   "history": [
     {
@@ -104,6 +105,17 @@
         "rpe": 10
       },
       "max": 223.64
+    },
+    {
+      "date": "2026-11-12T12:44:32+00:00",
+      "lift": "deadlift",
+      "top": {
+        "w": 210,
+        "r": 12,
+        "rpe": 9
+      },
+      "back": null,
+      "max": 321.59
     }
   ]
 }
